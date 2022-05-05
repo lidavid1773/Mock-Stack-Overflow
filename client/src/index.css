@@ -1,1 +1,179 @@
 /* Add CSS */
+
+/* Banner */
+.banner {
+  background-color: lightgrey;
+  border: 2px darkgray solid;
+  text-align: center;
+}
+
+.banner-contents {
+  display: inline-block;
+  padding: 2% 3%;
+  font-size: 30px;
+}
+
+.banner-hoverable:hover {
+  background-color: darkgrey;
+}
+
+/* Button */
+.button {
+  background-color: #165a92;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 10px;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.answer-question-btn {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.post-answer-btn {
+  margin-top: 15px;
+}
+
+/* Header Row */
+.header-row {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.header-row-column-1,
+.header-row-column-3 {
+  display: inline-block;
+  width: 25%;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.header-row-column-2 {
+  display: inline-block;
+  width: 50%;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* Questions Table */
+.questions-table {
+  overflow-y: auto;
+}
+
+.questions-table-row {
+  padding: 2%;
+  border-bottom: dotted gray 3px;
+}
+
+.questions-table-column {
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.questions-table-column-1 {
+  font-weight: bold;
+  width: 20%;
+}
+
+.questions-table-column-2 {
+  width: 60%;
+  font-weight: bold;
+}
+
+.questions-table-title-link {
+  border: none;
+  background-color: initial;
+  font-weight: bold;
+  color: #008cff;
+  font-size: 20px;
+}
+
+.questions-table-title-link:hover {
+  color: #0263b3;
+}
+
+.questions-table-tags {
+  background-color: gray;
+  display: inline-block;
+  color: white;
+  border-radius: 10px;
+  margin: 8px;
+  padding: 3px 5px;
+  border: 1px solid black;
+  width: 20%;
+}
+
+.questions-table-column-3 {
+  width: 20%;
+}
+
+/* New Questions Page */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Answers Page */
+.answers-table-row {
+  padding: 2%;
+  border-bottom: dotted gray 3px;
+}
+
+.answers-table-column {
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.answers-table-column-1 {
+  width: 80%;
+}
+
+.answers-table-column-2 {
+  width: 20%;
+}
+
+/* Tags Page */
+.tags-table {
+  margin-top: 5%;
+  margin-left: 17%;
+}
+
+.tag-div {
+  border: solid 1px black;
+  display: inline-block;
+  margin: 2%;
+  padding: 1%;
+  width: 15%;
+}
+
+.tag-link-div {
+  text-align: center;
+  padding: 5px;
+}
+
+.tag-counter-div {
+  text-align: center;
+  padding: 5px;
+}
+
+.tags-link {
+  border: none;
+  background: initial;
+  font-weight: bold;
+  color: #0281e8;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+/* misc */
+.center-div {
+  text-align: center;
+}
