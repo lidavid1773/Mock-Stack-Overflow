@@ -55,7 +55,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
@@ -63,7 +63,7 @@ export default class MainBody extends React.Component {
       bannerTagsColorEnabled: false,
       questions: [],
       tags: [],
-      answers: [],
+      answers: []
     };
   }
 
@@ -103,12 +103,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -166,13 +166,13 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
           questions={this.state.questions}
         />
       ),
       bannerQuestionsColorEnabled: true,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -214,12 +214,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -262,12 +262,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -308,10 +308,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
-      ),
+      )
     });
   };
 
@@ -357,12 +357,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -403,12 +403,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: true,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -449,12 +449,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: true,
+      bannerTagsColorEnabled: true
     });
   };
 
@@ -496,12 +496,12 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
       ),
       bannerQuestionsColorEnabled: false,
-      bannerTagsColorEnabled: false,
+      bannerTagsColorEnabled: false
     });
   };
 
@@ -552,14 +552,14 @@ export default class MainBody extends React.Component {
       asked_on: this.getOn(question.ask_date_time),
       asked_at: this.getAt(question.ask_date_time),
       answers: this.grabAnswerIds(question.qid, qaRes.data),
-      views: question.views,
+      views: question.views
     }));
     const newAnswers = answersRes.data.map((answer) => ({
       aid: answer.aid,
       text: answer.text,
       ans_by: answer.ans_by,
       ans_on: this.getOn(answer.ans_date_time),
-      ans_at: this.getAt(answer.ans_date_time),
+      ans_at: this.getAt(answer.ans_date_time)
     }));
     this.setState((previousState) => ({
       questions: newQuestions,
@@ -601,10 +601,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
-      ),
+      )
     }));
   }
 
@@ -623,14 +623,14 @@ export default class MainBody extends React.Component {
       asked_on: this.getOn(question.ask_date_time),
       asked_at: this.getAt(question.ask_date_time),
       answers: this.grabAnswerIds(question.qid, qaRes.data),
-      views: question.views,
+      views: question.views
     }));
     const newAnswers = answersRes.data.map((answer) => ({
       aid: answer.aid,
       text: answer.text,
       ans_by: answer.ans_by,
       ans_on: this.getOn(answer.ans_date_time),
-      ans_at: this.getAt(answer.ans_date_time),
+      ans_at: this.getAt(answer.ans_date_time)
     }));
     this.setState((previousState) => ({
       questions: newQuestions,
@@ -671,10 +671,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer,
+            addAnswer: this.addAnswer
           }}
         />
-      ),
+      )
     }));
   }
 
