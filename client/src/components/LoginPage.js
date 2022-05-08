@@ -8,7 +8,8 @@ export default class LoginPage extends React.Component {
     this.state = {
       email: "",
       password: "",
-      showSuccessfulMessage: false
+      showSuccessfulMessage: false,
+      showInvalidLoginMessage: false
     };
   }
 
@@ -16,20 +17,33 @@ export default class LoginPage extends React.Component {
     this.setState({ [input]: event.target.value });
   };
 
-  validateFormData = () => {
-    console.log(
-      "Check if information is valid. If so, direct to their account home page"
+  validateFormData = async () => {
+    const res = await axios.get(
+      `http://localhost:8000/loginSuccessful/${this.state.email}/${this.state.password}`
     );
-    this.setState({
-      showSuccessfulMessage: true
-    });
-    setTimeout(() => this.props.handleShowMainBody(), 1000);
+    let loginSuccessfulStatus = res.data;
+    if (loginSuccessfulStatus) {
+      this.setState({
+        showSuccessfulMessage: true,
+        showInvalidLoginMessage: false
+      });
+      setTimeout(() => this.props.handleShowMainBody(), 1000);
+    } else {
+      this.setState({
+        showInvalidLoginMessage: true
+      });
+    }
   };
 
   render() {
     return (
       <div className="center-div">
         <h1>Please enter your account information</h1>
+        <div className="error-message">
+          {this.state.showInvalidLoginMessage ? (
+            <div>You have entered an email/password combination.</div>
+          ) : null}
+        </div>
         <p>
           <i>Email</i>
         </p>
