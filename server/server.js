@@ -5,6 +5,7 @@
 const Answer = require("./db/Answer.js");
 const Question = require("./db/Question.js");
 const Tag = require("./db/Tag.js");
+const Account = require("./db/Account.js");
 
 // Start a server in https://localhost:8000
 const express = require("express");
@@ -29,7 +30,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: user,
   password: pass,
-  database: "fake_so",
+  database: "fake_so"
 });
 
 connection.connect(function (err) {
@@ -124,4 +125,14 @@ app.get("/getQuestionId/:title", (req, res) => {
 app.get("/getAnswerId/:text", (req, res) => {
   const text = req.params.text;
   Answer.getAnswerId(connection, res, text);
+});
+
+app.get("/createAccount/:username/:email/:password", (req, res) => {
+  Account.createAccount(
+    connection,
+    res,
+    req.params.username,
+    req.params.email,
+    req.params.password
+  );
 });

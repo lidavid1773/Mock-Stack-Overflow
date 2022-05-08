@@ -9,7 +9,7 @@ export default class WelcomePage extends React.Component {
       handleContinueAsGuest
     } = this.props;
     return (
-      <div>
+      <div class="center-div">
         <h1>WELCOME TO FAKE STACK OVERFLOW!</h1>
         <Button
           buttonLabel="Register as a new user"

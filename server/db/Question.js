@@ -1,7 +1,5 @@
 // Question-related Queries
 
-const e = require("express");
-
 exports.getQuestions = function (connection, res) {
   const get_questions_query = `select * from question;`;
   connection.query(get_questions_query, function (error, results) {

@@ -18,10 +18,13 @@ export default class NewUserPage extends React.Component {
   };
 
   validateFormData = () => {
-    console.log(
-      "Add account to database, maybe frontend storage, and directs user to login page"
-    );
-    console.log(this.state);
+    // check if password == confirmPassword
+    // check if account with email already exists
+    // make sure email is valid form (has the @ symbol, should be able to edit input fields to a type password or email for this)
+    // nicely styled feedback if any of the above is violated, stating account could not be created
+
+    // if no violations:
+    // Add account to database
     this.setState({
       showSuccessfulMessage: true
     });
@@ -30,7 +33,7 @@ export default class NewUserPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div class="center-div">
         <h1>Please fill out the following fields to create a new account!</h1>
         <p>
           <i>Username</i>

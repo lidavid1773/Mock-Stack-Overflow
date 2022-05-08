@@ -14,7 +14,7 @@ exports.getAnswers = function (connection, res) {
 exports.addAnswer = function (connection, res, text, ans_by) {
   let a = {
     text: text,
-    ans_by: ans_by,
+    ans_by: ans_by
   };
   connection.query("insert into answer set ?", a, function (error, results) {
     if (error) {
