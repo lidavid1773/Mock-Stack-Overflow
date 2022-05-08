@@ -963,6 +963,8 @@ export default class MainBody extends React.Component {
           handleShowSearchResults={this.handleShowSearchResults}
           handleQuestionsLink={this.handleQuestionsLink}
           handleTagsLink={this.handleTagsLink}
+          userInfo={this.props.userInfo}
+          handleLogout={this.props.handleLogout}
         />
         {this.state.mainBody}
       </div>

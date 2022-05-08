@@ -18,9 +18,9 @@ export default class FakeStackOverflow extends React.Component {
     };
   }
 
-  handleShowMainBody = () => {
+  handleShowMainBody = (userInfo) => {
     this.setState({
-      page: <MainBody />
+      page: <MainBody userInfo={userInfo} handleLogout={this.handleLogout} />
     });
   };
 
@@ -41,7 +41,19 @@ export default class FakeStackOverflow extends React.Component {
   };
 
   handleContinueAsGuest = () => {
-    console.log("TBD");
+    this.handleShowMainBody({ guest: true, email: "" });
+  };
+
+  handleLogout = () => {
+    this.setState({
+      page: (
+        <WelcomePage
+          handleRegisterNewUser={this.handleRegisterNewUser}
+          handleLoginToExistingUser={this.handleLoginToExistingUser}
+          handleContinueAsGuest={this.handleContinueAsGuest}
+        />
+      )
+    });
   };
 
   render() {

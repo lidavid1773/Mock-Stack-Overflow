@@ -4,32 +4,37 @@ export default class Banner extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userInput: "",
+      userInput: ""
     };
   }
 
   handleChange = (event) => {
     this.setState({
-      userInput: event.target.value,
+      userInput: event.target.value
     });
   };
 
   render() {
-    const { handleShowSearchResults, handleQuestionsLink, handleTagsLink } =
-      this.props;
+    const {
+      questionsColor,
+      tagsColor,
+      handleShowSearchResults,
+      handleQuestionsLink,
+      handleTagsLink,
+      userInfo,
+      handleLogout
+    } = this.props;
     return (
       <div>
         <div className="banner">
           <div
-            style={
-              this.props.questionsColor ? { backgroundColor: "#0281e8" } : null
-            }
+            style={questionsColor ? { backgroundColor: "#0281e8" } : null}
             className="banner-contents banner-hoverable"
           >
             <a onClick={() => handleQuestionsLink()}>Questions</a>
           </div>
           <div
-            style={this.props.tagsColor ? { backgroundColor: "#0281e8" } : null}
+            style={tagsColor ? { backgroundColor: "#0281e8" } : null}
             className="banner-contents banner-hoverable"
           >
             <a onClick={() => handleTagsLink()}>Tags</a>
@@ -49,6 +54,14 @@ export default class Banner extends React.Component {
               placeholder="Search..."
             />
           </div>
+          {userInfo.guest ? null : (
+            <div
+              className="banner-contents banner-hoverable"
+              onClick={handleLogout}
+            >
+              Logout
+            </div>
+          )}
         </div>
       </div>
     );

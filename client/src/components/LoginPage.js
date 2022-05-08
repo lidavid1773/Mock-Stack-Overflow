@@ -27,7 +27,14 @@ export default class LoginPage extends React.Component {
         showSuccessfulMessage: true,
         showInvalidLoginMessage: false
       });
-      setTimeout(() => this.props.handleShowMainBody(), 1000);
+      setTimeout(
+        () =>
+          this.props.handleShowMainBody({
+            guest: false,
+            email: this.state.email
+          }),
+        1000
+      );
     } else {
       this.setState({
         showInvalidLoginMessage: true
