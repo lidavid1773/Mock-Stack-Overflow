@@ -10,7 +10,7 @@ export default class TagsPage extends React.Component {
         <HeaderRow
           column1={`${methods.getNumberOfTags()} Tags`}
           column2="All Tags"
-          column3={handleAskAQuestion}
+          handleAskAQuestion={handleAskAQuestion}
         />
         {/* Tags Table */}
 
