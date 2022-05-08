@@ -28,7 +28,7 @@ export default class LoginPage extends React.Component {
 
   render() {
     return (
-      <div class="center-div">
+      <div className="center-div">
         <h1>Please enter your account information</h1>
         <p>
           <i>Username</i>

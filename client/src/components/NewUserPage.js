@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import axios from "axios";
 
 export default class NewUserPage extends React.Component {
   constructor(props) {
@@ -9,7 +10,10 @@ export default class NewUserPage extends React.Component {
       email: "",
       password: "",
       confirmPassword: "",
-      showSuccessfulMessage: false
+      showSuccessfulMessage: false,
+      showMismatchedPasswordsError: false,
+      showInvalidEmailError: false,
+      showAccountAlreadyExistsError: false
     };
   }
 
@@ -19,22 +23,52 @@ export default class NewUserPage extends React.Component {
 
   validateFormData = () => {
     // check if password == confirmPassword
+    let mismatchedPasswordsError =
+      this.state.password === this.state.confirmPassword ? false : true;
+
+    // make sure email is valid form
+    let invalidEmailError = !(
+      this.state.email.includes("@") && this.state.email.includes(".")
+    );
+
     // check if account with email already exists
-    // make sure email is valid form (has the @ symbol, should be able to edit input fields to a type password or email for this)
-    // nicely styled feedback if any of the above is violated, stating account could not be created
+
+    // check if password contains username or email id
+
+    let accountAlreadyExists = true;
+
+    this.setState({ showMismatchedPasswordsError: mismatchedPasswordsError });
+    this.setState({ showInvalidEmailError: invalidEmailError });
+    this.setState({ showAccountAlreadyExistsError: accountAlreadyExists });
+    let error =
+      mismatchedPasswordsError || invalidEmailError || accountAlreadyExists;
 
     // if no violations:
-    // Add account to database
-    this.setState({
-      showSuccessfulMessage: true
-    });
-    setTimeout(() => this.props.handleLoginToExistingUser(), 1000);
+    if (!error) {
+      // Add account to database
+
+      this.setState({
+        showSuccessfulMessage: true
+      });
+      setTimeout(() => this.props.handleLoginToExistingUser(), 1000);
+    }
   };
 
   render() {
     return (
-      <div class="center-div">
+      <div className="center-div">
         <h1>Please fill out the following fields to create a new account!</h1>
+        <div className="error-message">
+          {this.state.showMismatchedPasswordsError ? (
+            <div>Your passwords do not match!</div>
+          ) : null}
+          {this.state.showInvalidEmailError ? (
+            <div>Your email is invalid!</div>
+          ) : null}
+          {this.state.showAccountAlreadyExistsError ? (
+            <div>An account with this email already exists!</div>
+          ) : null}
+        </div>
         <p>
           <i>Username</i>
         </p>
