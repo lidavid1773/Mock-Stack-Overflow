@@ -16,13 +16,13 @@ exports.createAccount = function (connection, res, username, email, password) {
   });
 };
 
-exports.verifyAccount = function (connection, res, email) {
+exports.checkIfAccountExists = function (connection, res, email) {
   const query = "select accountId from account where email = ?;";
   connection.query(query, [email], function (error, results) {
     if (error) {
       throw error;
       return;
     }
-    res.json(true);
+    res.json(results);
   });
 };

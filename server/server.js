@@ -137,6 +137,6 @@ app.get("/createAccount/:username/:email/:password", (req, res) => {
   );
 });
 
-app.get("verifyAccount/:email", (req, res) => {
-  Account.verifyAccount(connection, res, req.params.email);
+app.get("/checkIfAccountExists/:email", (req, res) => {
+  Account.checkIfAccountExists(connection, res, req.params.email);
 });
