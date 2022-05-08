@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import axios from "axios";
 
 export default class LoginPage extends React.Component {
   constructor(props) {
@@ -19,7 +20,6 @@ export default class LoginPage extends React.Component {
     console.log(
       "Check if information is valid. If so, direct to their account home page"
     );
-    console.log(this.state);
     this.setState({
       showSuccessfulMessage: true
     });
@@ -31,7 +31,7 @@ export default class LoginPage extends React.Component {
       <div className="center-div">
         <h1>Please enter your account information</h1>
         <p>
-          <i>Username</i>
+          <i>Email</i>
         </p>
         <input onChange={(e) => this.handleChange(e, "email")} type="text" />
         <p>

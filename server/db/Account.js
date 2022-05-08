@@ -26,3 +26,15 @@ exports.checkIfAccountExists = function (connection, res, email) {
     res.json(results);
   });
 };
+
+exports.loginSuccessful = function (connection, res, email, password) {
+  const query = "select password from account where email = ?;";
+  connection.query(query, [email], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    if (results.length === 0) res.json(false);
+    else results[0].password === password ? res.json(true) : res.json(false);
+  });
+};

@@ -140,3 +140,12 @@ app.get("/createAccount/:username/:email/:password", (req, res) => {
 app.get("/checkIfAccountExists/:email", (req, res) => {
   Account.checkIfAccountExists(connection, res, req.params.email);
 });
+
+app.get("/loginSuccessful/:email/:password", (req, res) => {
+  Account.loginSuccessful(
+    connection,
+    res,
+    req.params.email,
+    req.params.password
+  );
+});
