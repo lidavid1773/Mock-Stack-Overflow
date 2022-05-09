@@ -11,6 +11,7 @@ export default class TagsPage extends React.Component {
           column1={`${methods.getNumberOfTags()} Tags`}
           column2="All Tags"
           handleAskAQuestion={handleAskAQuestion}
+          userInfo={this.props.userInfo}
         />
         {/* Tags Table */}
 

@@ -4,8 +4,13 @@ import QuestionsTable from "./QuestionsTable";
 
 export default class TagsResultsPage extends React.Component {
   render() {
-    const { handleAskAQuestion, tagObj, handleDisplayAnswers, methods } =
-      this.props;
+    const {
+      handleAskAQuestion,
+      tagObj,
+      handleDisplayAnswers,
+      methods,
+      userInfo
+    } = this.props;
 
     const taggedQuestions = methods.searchForQuestionTags(tagObj.name);
     return (
@@ -18,6 +23,7 @@ export default class TagsResultsPage extends React.Component {
           }
           column2={`Questions tagged [${tagObj.name}]`}
           handleAskAQuestion={handleAskAQuestion}
+          userInfo={userInfo}
         />
         {/* Display a Question Table with all relevant questions*/}
         <QuestionsTable

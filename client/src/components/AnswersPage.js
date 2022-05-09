@@ -4,7 +4,7 @@ import Button from "./Button";
 
 export default class AnswersPage extends React.Component {
   render() {
-    const { handleAskAQuestion, qid, handleAnswerQuestion, methods } =
+    const { handleAskAQuestion, qid, handleAnswerQuestion, methods, userInfo } =
       this.props;
     return (
       <div>
@@ -12,6 +12,7 @@ export default class AnswersPage extends React.Component {
           column1={`${methods.getQuestionAnswerCount(qid)} Answers`}
           column2={methods.getQuestionTitle(qid)}
           handleAskAQuestion={handleAskAQuestion}
+          userInfo={userInfo}
         />
         {/* Second Row */}
         <div className="questions-table-row" key={qid}>
@@ -45,10 +46,14 @@ export default class AnswersPage extends React.Component {
           </div>
         ))}
         <div className="answer-question-btn">
-          <Button
-            buttonLabel="Answer Question"
-            handler={() => handleAnswerQuestion(qid)}
-          />
+          {userInfo.guest ? (
+            <Button buttonLabel="Login to Answer a Question" />
+          ) : (
+            <Button
+              buttonLabel="Answer Question"
+              handler={() => handleAnswerQuestion(qid)}
+            />
+          )}
         </div>
       </div>
     );

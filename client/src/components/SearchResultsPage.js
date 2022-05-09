@@ -4,7 +4,7 @@ import QuestionsTable from "./QuestionsTable";
 
 export default class SearchResultsPage extends React.Component {
   render() {
-    const { handleAskAQuestion, userInput, methods } = this.props;
+    const { handleAskAQuestion, userInput, methods, userInfo } = this.props;
     const arr = userInput.split(" ").map((string) => string.toLowerCase());
     // use arr to generate an array of questions to be passed as props to QuestionsTable component
     let questions = [];
@@ -53,6 +53,7 @@ export default class SearchResultsPage extends React.Component {
           column1={`${questions.length} Questions`}
           column2={"Search Results"}
           handleAskAQuestion={handleAskAQuestion}
+          userInfo={this.props.userInfo}
         />
         <QuestionsTable
           questions={questions}

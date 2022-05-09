@@ -217,6 +217,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: false,
@@ -265,6 +266,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: false,
@@ -360,6 +362,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: false,
@@ -453,6 +456,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: false,
@@ -500,6 +504,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: false,
@@ -605,6 +610,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       )
     }));

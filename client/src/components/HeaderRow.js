@@ -9,17 +9,6 @@ export default class HeaderRow extends React.Component {
       <div className="header-row">
         <div className="header-row-column-1">{column1}</div>
         <div className="header-row-column-2">{column2}</div>
-        {userInfo.guest ? null : (
-          <div className="header-row-column-3">
-            {
-              <Button
-                buttonLabel="Ask a Question"
-                handler={handleAskAQuestion}
-              />
-            }
-          </div>
-        )}
-
         <div className="header-row-column-3">
           {userInfo.guest ? (
             <Button buttonLabel="Login to Ask a Question" />
