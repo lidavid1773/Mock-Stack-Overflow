@@ -144,6 +144,12 @@ export default class NewUserPage extends React.Component {
             handler={this.validateFormData}
           ></Button>
         </div>
+        <div className="post-answer-btn">
+          <Button
+            buttonLabel="Login to existing account"
+            handler={this.props.handleLoginToExistingUser}
+          ></Button>
+        </div>
       </div>
     );
   }

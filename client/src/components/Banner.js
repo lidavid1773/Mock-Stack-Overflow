@@ -22,7 +22,8 @@ export default class Banner extends React.Component {
       handleQuestionsLink,
       handleTagsLink,
       userInfo,
-      handleLogout
+      handleLogout,
+      handleLogin
     } = this.props;
     return (
       <div>
@@ -54,7 +55,14 @@ export default class Banner extends React.Component {
               placeholder="Search..."
             />
           </div>
-          {userInfo.guest ? null : (
+          {userInfo.guest ? (
+            <div
+              className="banner-contents banner-hoverable"
+              onClick={handleLogin}
+            >
+              Login
+            </div>
+          ) : (
             <div
               className="banner-contents banner-hoverable"
               onClick={handleLogout}

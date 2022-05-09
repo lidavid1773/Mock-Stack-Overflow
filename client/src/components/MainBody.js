@@ -57,6 +57,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: true,
@@ -168,7 +169,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
-          questions={this.state.questions}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: true,
@@ -405,6 +406,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       ),
       bannerQuestionsColorEnabled: true,
@@ -673,6 +675,7 @@ export default class MainBody extends React.Component {
             getAnswerAnsAt: this.getAnswerAnsAt,
             addAnswer: this.addAnswer
           }}
+          userInfo={this.props.userInfo}
         />
       )
     }));
@@ -965,6 +968,7 @@ export default class MainBody extends React.Component {
           handleTagsLink={this.handleTagsLink}
           userInfo={this.props.userInfo}
           handleLogout={this.props.handleLogout}
+          handleLogin={this.props.handleLogin}
         />
         {this.state.mainBody}
       </div>

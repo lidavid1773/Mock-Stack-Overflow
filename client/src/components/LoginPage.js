@@ -70,6 +70,12 @@ export default class LoginPage extends React.Component {
         <div className="post-answer-btn">
           <Button buttonLabel="Login" handler={this.validateFormData}></Button>
         </div>
+        <div className="post-answer-btn">
+          <Button
+            buttonLabel="Create a new account"
+            handler={this.props.handleRegisterNewUser}
+          ></Button>
+        </div>
       </div>
     );
   }
