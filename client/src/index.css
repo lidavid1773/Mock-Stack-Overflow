@@ -177,3 +177,7 @@
 .center-div {
   text-align: center;
 }
+
+.make-inline {
+  display: inline-block;
+}

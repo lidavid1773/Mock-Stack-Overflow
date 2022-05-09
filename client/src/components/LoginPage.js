@@ -31,7 +31,8 @@ export default class LoginPage extends React.Component {
         () =>
           this.props.handleShowMainBody({
             guest: false,
-            email: this.state.email
+            email: this.state.email,
+            username: "temp username"
           }),
         1000
       );

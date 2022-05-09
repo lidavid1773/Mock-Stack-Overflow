@@ -20,7 +20,7 @@ export default class FakeStackOverflow extends React.Component {
 
   handleShowMainBody = (userInfo) => {
     // might need to pass in more stuff such as username, so that we wouldnt have to trigger a re render after grabbing data inside of mainbody
-    // userInfo: {guest: bool, email: string}
+    // userInfo: {guest: bool, email: string, username: ""}
     this.setState({
       page: (
         <MainBody
@@ -54,7 +54,7 @@ export default class FakeStackOverflow extends React.Component {
   };
 
   handleContinueAsGuest = () => {
-    this.handleShowMainBody({ guest: true, email: "" });
+    this.handleShowMainBody({ guest: true, email: "", username: "" });
   };
 
   handleLogout = () => {

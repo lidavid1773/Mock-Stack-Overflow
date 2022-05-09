@@ -55,6 +55,14 @@ export default class Banner extends React.Component {
               placeholder="Search..."
             />
           </div>
+          {userInfo.guest ? null : (
+            <div
+              className="banner-contents banner-hoverable"
+              onClick={this.props.handleDisplayUserProfile}
+            >
+              {this.props.userInfo.username}
+            </div>
+          )}
           {userInfo.guest ? (
             <div
               className="banner-contents banner-hoverable"
@@ -63,11 +71,13 @@ export default class Banner extends React.Component {
               Login
             </div>
           ) : (
-            <div
-              className="banner-contents banner-hoverable"
-              onClick={handleLogout}
-            >
-              Logout
+            <div className="banner-contents">
+              <div
+                className="banner-contents banner-hoverable"
+                onClick={handleLogout}
+              >
+                Logout
+              </div>
             </div>
           )}
         </div>

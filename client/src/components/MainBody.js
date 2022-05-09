@@ -7,6 +7,7 @@ import AnswersPage from "./AnswersPage";
 import NewAnswersPage from "./NewAnswersPage";
 import TagsPage from "./TagsPage";
 import TagsResultsPage from "./TagsResultsPage";
+import UserProfilePage from "./UserProfilePage";
 import axios from "axios";
 
 // This component contains a state which is the page to be displayed in the main body
@@ -512,6 +513,12 @@ export default class MainBody extends React.Component {
     });
   };
 
+  handleDisplayUserProfile = () => {
+    this.setState({
+      mainBody: <UserProfilePage />
+    });
+  };
+
   getOn(date) {
     let d = new Date(date.toString());
     d = d.toString().split(" ");
@@ -975,6 +982,7 @@ export default class MainBody extends React.Component {
           userInfo={this.props.userInfo}
           handleLogout={this.props.handleLogout}
           handleLogin={this.props.handleLogin}
+          handleDisplayUserProfile={this.handleDisplayUserProfile}
         />
         {this.state.mainBody}
       </div>
