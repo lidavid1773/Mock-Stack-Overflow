@@ -51,6 +51,14 @@ export default class LoginPage extends React.Component {
             <div>You have entered an email/password combination.</div>
           ) : null}
         </div>
+        <div
+          style={{
+            display: this.state.showSuccessfulMessage ? "block" : "none",
+            color: "green"
+          }}
+        >
+          Login successful... redirecting you to home page
+        </div>
         <p>
           <i>Email</i>
         </p>
@@ -61,14 +69,6 @@ export default class LoginPage extends React.Component {
         <input onChange={(e) => this.handleChange(e, "password")} type="text" />
         <div className="post-answer-btn">
           <Button buttonLabel="Login" handler={this.validateFormData}></Button>
-        </div>
-        <div
-          style={{
-            display: this.state.showSuccessfulMessage ? "block" : "none",
-            color: "green"
-          }}
-        >
-          Login successful... redirecting you to home page
         </div>
       </div>
     );

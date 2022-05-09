@@ -19,6 +19,7 @@ export default class FakeStackOverflow extends React.Component {
   }
 
   handleShowMainBody = (userInfo) => {
+    // might need to pass in more stuff such as username, so that we wouldnt have to trigger a re render after grabbing data inside of mainbody
     this.setState({
       page: <MainBody userInfo={userInfo} handleLogout={this.handleLogout} />
     });

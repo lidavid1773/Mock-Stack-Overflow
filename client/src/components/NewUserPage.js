@@ -14,7 +14,8 @@ export default class NewUserPage extends React.Component {
       showMismatchedPasswordsError: false,
       showInvalidEmailError: false,
       showAccountAlreadyExistsError: false,
-      showInvalidPasswordError: false
+      showInvalidPasswordError: false,
+      showIncompleteFormError: false
     };
   }
 
@@ -32,12 +33,6 @@ export default class NewUserPage extends React.Component {
       this.state.email.includes("@") && this.state.email.includes(".")
     );
 
-    // check if account with email already exists
-    const res = await axios.get(
-      `http://localhost:8000/checkIfAccountExists/${this.state.email}`
-    );
-    let accountAlreadyExists = res.data.length === 0 ? false : true;
-
     // check if password contains username or email id
     let emailId = this.state.email.split("@");
     let invalidPasswordError =
@@ -46,26 +41,39 @@ export default class NewUserPage extends React.Component {
         ? true
         : false;
 
+    let incompleteFormError =
+      this.state.username === "" ||
+      this.state.email === "" ||
+      this.state.password === "" ||
+      this.state.confirmPassword === "";
+
     this.setState({ showMismatchedPasswordsError: mismatchedPasswordsError });
     this.setState({ showInvalidEmailError: invalidEmailError });
-    this.setState({ showAccountAlreadyExistsError: accountAlreadyExists });
     this.setState({ showInvalidPasswordError: invalidPasswordError });
+    this.setState({ showIncompleteFormError: incompleteFormError });
     let error =
-      mismatchedPasswordsError ||
-      invalidEmailError ||
-      accountAlreadyExists ||
-      invalidPasswordError;
+      mismatchedPasswordsError || invalidEmailError || invalidPasswordError;
 
     // if no violations:
     if (!error) {
-      // Add account to database
-      axios.get(
-        `http://localhost:8000/createAccount/${this.state.username}/${this.state.email}/${this.state.password}`
+      // check if account with email already exists
+      const res = await axios.get(
+        `http://localhost:8000/checkIfAccountExists/${this.state.email}`
       );
-      this.setState({
-        showSuccessfulMessage: true
-      });
-      setTimeout(() => this.props.handleLoginToExistingUser(), 1000);
+      let accountAlreadyExists = res.data.length === 0 ? false : true;
+
+      if (accountAlreadyExists) {
+        this.setState({ showAccountAlreadyExistsError: accountAlreadyExists });
+      } else {
+        // Add account to database
+        axios.get(
+          `http://localhost:8000/createAccount/${this.state.username}/${this.state.email}/${this.state.password}`
+        );
+        this.setState({
+          showSuccessfulMessage: true
+        });
+        setTimeout(() => this.props.handleLoginToExistingUser(), 1000);
+      }
     }
   };
 
@@ -86,6 +94,17 @@ export default class NewUserPage extends React.Component {
           {this.state.showInvalidPasswordError ? (
             <div>Your password may not contain your username or email id!</div>
           ) : null}
+          {this.state.showIncompleteFormError ? (
+            <div>Please fill out all sections!</div>
+          ) : null}
+        </div>
+        <div
+          style={{
+            display: this.state.showSuccessfulMessage ? "block" : "none",
+            color: "green"
+          }}
+        >
+          Registration successful... redirecting you to login page
         </div>
         <p>
           <i>Username</i>
@@ -124,14 +143,6 @@ export default class NewUserPage extends React.Component {
             buttonLabel="Sign Up"
             handler={this.validateFormData}
           ></Button>
-        </div>
-        <div
-          style={{
-            display: this.state.showSuccessfulMessage ? "block" : "none",
-            color: "green"
-          }}
-        >
-          Registration successful... redirecting you to login page
         </div>
       </div>
     );
