@@ -104,3 +104,25 @@ exports.getAccountQuestionIds = function (connection, res, accountId) {
     res.json(results);
   });
 };
+
+exports.addAccountTag = function (connection, res, accountId, tid) {
+  const query = `insert into accounttag values(?,?)`;
+  connection.query(query, [accountId, tid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json("added accounttag!");
+  });
+};
+
+exports.getAccountTagIds = function (connection, res, accountId) {
+  const query = `select tagId from accounttag where accId = ?;`;
+  connection.query(query, [accountId], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results);
+  });
+};

@@ -595,10 +595,12 @@ export default class MainBody extends React.Component {
   };
 
   handleDisplayUserProfile = async () => {
+    // get account id
     const accIdRes = await axios.get(
       `http://localhost:8000/getAccountId/${this.props.userInfo.email}`
     );
     const accId = accIdRes.data;
+    // get question ids
     const accountQuestionIdsRes = await axios.get(
       `http://localhost:8000/getAccountQuestionIds/${accId}`
     );
@@ -612,7 +614,17 @@ export default class MainBody extends React.Component {
       userQuestions.push(textRes.data);
     }
     const userAnswers = [];
+    // get tag ids
+    const accountTagIdsRes = await axios.get(
+      `http://localhost:8000/getAccountTagIds/${accId}`
+    );
+    const accountTagIds = accountTagIdsRes.data;
     const userTags = [];
+    for (let i = 0; i < accountTagIds.length; i++) {
+      const tid = accountTagIds[i].tagId;
+      const tagRes = await axios.get(`http://localhost:8000/getTagName/${tid}`);
+      userTags.push(tagRes.data);
+    }
     this.setState({
       mainBody: (
         <UserProfilePage
@@ -1429,10 +1441,18 @@ export default class MainBody extends React.Component {
   };
 
   // For Tags
-  addTag = (tagName) => {
+  addTag = async (tagName) => {
     this.state.tags.unshift(tagName);
     // request to add tag to db
     axios.get(`http://localhost:8000/addTag/${tagName}`);
+    // add accounttag
+    const accIdRes = await axios.get(
+      `http://localhost:8000/getAccountId/${this.props.userInfo.email}`
+    );
+    const tidRes = await axios.get(`http://localhost:8000/getTagId/${tagName}`);
+    const accountId = accIdRes.data;
+    const tid = tidRes.data;
+    axios.get(`http://localhost:8000/addAccountTag/${accountId}/${tid}`);
   };
 
   // For Answers

@@ -33,7 +33,13 @@ export default class UserProfilePage extends React.Component {
           <br />
           <div>{`Answers by ${userInfo.username}: ${userAnswers}`}</div>
           <br />
-          <div>{`Tags by ${userInfo.username}: ${userTags}`}</div>
+          <div>
+            {`Tags by ${userInfo.username}: `}
+            <br />
+            {userTags.map((tag) => (
+              <div>-{tag}</div>
+            ))}
+          </div>
         </div>
       </div>
     );

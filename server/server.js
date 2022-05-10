@@ -199,3 +199,19 @@ app.get("/getQuestionText/:qid", (req, res) => {
   const qid = req.params.qid;
   Question.getQuestionText(connection, res, qid);
 });
+
+app.get("/addAccountTag/:accountId/:tid", (req, res) => {
+  const accountId = req.params.accountId;
+  const tid = req.params.tid;
+  Account.addAccountTag(connection, res, accountId, tid);
+});
+
+app.get("/getAccountTagIds/:accountId", (req, res) => {
+  const accountId = req.params.accountId;
+  Account.getAccountTagIds(connection, res, accountId);
+});
+
+app.get("/getTagName/:tid", (req, res) => {
+  const tid = req.params.tid;
+  Tag.getTagName(connection, res, tid);
+});
