@@ -35,3 +35,14 @@ exports.getAnswerId = function (connection, res, text) {
     res.json(results[0].aid);
   });
 };
+
+exports.updateAnswerVoteCount = function (connection, res, aid, newVotes) {
+  const query = `update answer set votes = ? where aid = ?;`;
+  connection.query(query, [newVotes, aid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json("updated!");
+  });
+};

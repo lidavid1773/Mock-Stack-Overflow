@@ -90,6 +90,15 @@ app.get("/updateQuestionVoteCount/:qid/:newVotes", (req, res) => {
   );
 });
 
+app.get("/updateAnswerVoteCount/:aid/:newVotes", (req, res) => {
+  Answer.updateAnswerVoteCount(
+    connection,
+    res,
+    req.params.aid,
+    req.params.newVotes
+  );
+});
+
 // Add new question, tag, or answer
 app.get("/addQuestion/:title/:text/:asked_by", (req, res) => {
   Question.addQuestion(

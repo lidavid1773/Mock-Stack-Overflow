@@ -42,6 +42,27 @@ export default class AnswersPage extends React.Component {
               <div>{`Ans By ${methods.getAnswerAnsBy(answerId)}`}</div>
               <div>{`On ${methods.getAnswerAnsOn(answerId)}`}</div>
               <div>{`At ${methods.getAnswerAnsAt(answerId)}`}</div>
+              <div>
+                <button
+                  onClick={() =>
+                    methods.incrementAnswerVoteCount(answerId, qid)
+                  }
+                  className="make-inline"
+                >
+                  upvote
+                </button>
+                <div className="make-inline">
+                  {`${methods.getAnswerVoteCount(answerId)} Votes`}
+                </div>
+                <button
+                  onClick={() =>
+                    methods.decrementAnswerVoteCount(answerId, qid)
+                  }
+                  className="make-inline"
+                >
+                  downvote
+                </button>
+              </div>
             </div>
           </div>
         ))}
