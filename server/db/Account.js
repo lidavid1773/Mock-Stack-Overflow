@@ -38,3 +38,25 @@ exports.loginSuccessful = function (connection, res, email, password) {
     else results[0].password === password ? res.json(true) : res.json(false);
   });
 };
+
+exports.getReputation = function (connection, res, email) {
+  const query = "select reputation from account where email = ?;";
+  connection.query(query, [email], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results[0].reputation);
+  });
+};
+
+exports.getAccounts = function (connection, res) {
+  const get_accounts_query = `select * from account;`;
+  connection.query(get_accounts_query, function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results);
+  });
+};

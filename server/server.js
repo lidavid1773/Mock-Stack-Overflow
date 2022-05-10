@@ -72,6 +72,10 @@ app.get("/getQt", (req, res) => {
   Question.getQt(connection, res);
 });
 
+app.get("/getAccounts", (req, res) => {
+  Account.getAccounts(connection, res);
+});
+
 app.get("/incrementQuestionViewCount/:qid/:newViews", (req, res) => {
   Question.incrementQuestionViewCount(
     connection,
@@ -166,4 +170,8 @@ app.get("/loginSuccessful/:email/:password", (req, res) => {
     req.params.email,
     req.params.password
   );
+});
+
+app.get("/getReputation/:email", (req, res) => {
+  Account.getReputation(connection, res, req.params.email);
 });

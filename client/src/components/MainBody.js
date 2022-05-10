@@ -62,7 +62,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -71,7 +72,8 @@ export default class MainBody extends React.Component {
       bannerTagsColorEnabled: false,
       questions: [],
       tags: [],
-      answers: []
+      answers: [],
+      accounts: []
     };
   }
 
@@ -117,7 +119,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
         />
       ),
@@ -186,7 +189,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -240,7 +244,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -295,7 +300,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -348,7 +354,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
         />
       )
@@ -403,7 +410,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -456,7 +464,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -509,7 +518,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -563,7 +573,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -575,7 +586,51 @@ export default class MainBody extends React.Component {
 
   handleDisplayUserProfile = () => {
     this.setState({
-      mainBody: <UserProfilePage />
+      mainBody: (
+        <UserProfilePage
+          userInfo={this.props.userInfo}
+          methods={{
+            getNumberOfQuestions: this.getNumberOfQuestions,
+            getAllQuestions: this.getAllQuestions,
+            getQuestionViewCount: this.getQuestionViewCount,
+            incrementQuestionViewCount: this.incrementQuestionViewCount,
+            getQuestionAnswerCount: this.getQuestionAnswerCount,
+            getQuestionAnswers: this.getQuestionAnswers,
+            getQuestionAskedBy: this.getQuestionAskedBy,
+            getQuestionAskedOn: this.getQuestionAskedOn,
+            getQuestionAskedAt: this.getQuestionAskedAt,
+            getQuestionTitle: this.getQuestionTitle,
+            getQuestionText: this.getQuestionText,
+            addQuestion: this.addQuestion,
+            addQuestionAnswer: this.addQuestionAnswer,
+            getTagIds: this.getTagIds,
+            getTagName: this.getTagName,
+            getTagId: this.getTagId,
+            getTags: this.getTags,
+            getTagsLst: this.getTagsLst,
+            getNumberOfTags: this.getNumberOfTags,
+            addTag: this.addTag,
+            tagExists: this.tagExists,
+            contains: this.contains,
+            getTagsList: this.getTagsList,
+            searchForQuestionTags: this.searchForQuestionTags,
+            searchForQuestionNonTag: this.searchForQuestionNonTag,
+            getNumberOfAnswers: this.getNumberOfAnswers,
+            getAnswerText: this.getAnswerText,
+            getAnswerAnsBy: this.getAnswerAnsBy,
+            getAnswerAnsOn: this.getAnswerAnsOn,
+            getAnswerAnsAt: this.getAnswerAnsAt,
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount,
+            getAnswerVoteCount: this.getAnswerVoteCount,
+            incrementAnswerVoteCount: this.incrementAnswerVoteCount,
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
+          }}
+        />
+      )
     });
   };
 
@@ -617,6 +672,7 @@ export default class MainBody extends React.Component {
     const answersRes = await axios.get("http://localhost:8000/getAnswers");
     const qaRes = await axios.get("http://localhost:8000/getQa");
     const qtRes = await axios.get("http://localhost:8000/getQt");
+    const accountRes = await axios.get("http://localhost:8000/getAccounts");
     const newQuestions = questionsRes.data.map((question) => ({
       qid: question.qid,
       title: question.title,
@@ -637,10 +693,18 @@ export default class MainBody extends React.Component {
       ans_at: this.getAt(answer.ans_date_time),
       votes: answer.votes
     }));
+    const newAccounts = accountRes.data.map((account) => ({
+      accountId: account.accountId,
+      username: account.username,
+      email: account.email,
+      password: account.password,
+      reputation: account.reputation
+    }));
     this.setState((previousState) => ({
       questions: newQuestions,
       tags: tagsRes.data,
       answers: newAnswers,
+      accounts: newAccounts,
       mainBody: (
         <AnswersPage
           handleAskAQuestion={this.handleAskAQuestion}
@@ -683,7 +747,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -697,6 +762,7 @@ export default class MainBody extends React.Component {
     const answersRes = await axios.get("http://localhost:8000/getAnswers");
     const qaRes = await axios.get("http://localhost:8000/getQa");
     const qtRes = await axios.get("http://localhost:8000/getQt");
+    const accountRes = await axios.get("http://localhost:8000/getAccounts");
     const newQuestions = questionsRes.data.map((question) => ({
       qid: question.qid,
       title: question.title,
@@ -717,10 +783,18 @@ export default class MainBody extends React.Component {
       ans_at: this.getAt(answer.ans_date_time),
       votes: answer.votes
     }));
+    const newAccounts = accountRes.data.map((account) => ({
+      accountId: account.accountId,
+      username: account.username,
+      email: account.email,
+      password: account.password,
+      reputation: account.reputation
+    }));
     this.setState((previousState) => ({
       questions: newQuestions,
       tags: tagsRes.data,
       answers: newAnswers,
+      accounts: newAccounts,
       mainBody: (
         <AllQuestionsPage
           handleAskAQuestion={this.handleAskAQuestion}
@@ -762,7 +836,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -1067,7 +1142,8 @@ export default class MainBody extends React.Component {
             addAnswer: this.addAnswer,
             getQuestionVoteCount: this.getQuestionVoteCount,
             incrementQuestionVoteCount: this.incrementQuestionVoteCount,
-            decrementQuestionVoteCount: this.decrementQuestionVoteCount
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -1127,7 +1203,8 @@ export default class MainBody extends React.Component {
             addAnswer: this.addAnswer,
             getQuestionVoteCount: this.getQuestionVoteCount,
             incrementQuestionVoteCount: this.incrementQuestionVoteCount,
-            decrementQuestionVoteCount: this.decrementQuestionVoteCount
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -1200,7 +1277,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -1264,7 +1342,8 @@ export default class MainBody extends React.Component {
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
-            decrementAnswerVoteCount: this.decrementAnswerVoteCount
+            decrementAnswerVoteCount: this.decrementAnswerVoteCount,
+            getReputation: this.getReputation
           }}
           userInfo={this.props.userInfo}
         />
@@ -1310,6 +1389,15 @@ export default class MainBody extends React.Component {
     axios.get(
       `http://localhost:8000/addAnswer/${answerObj.text}/${answerObj.ans_by}`
     );
+  };
+
+  getReputation = (email) => {
+    for (let i = 0; i < this.state.accounts.length; i++) {
+      const currentAccount = this.state.accounts[i];
+      if (currentAccount.email === email) {
+        return currentAccount.reputation;
+      }
+    }
   };
 
   render() {
