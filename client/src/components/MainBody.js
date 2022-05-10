@@ -63,7 +63,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -120,7 +121,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
         />
       ),
@@ -190,7 +192,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -245,7 +248,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -301,7 +305,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -355,7 +360,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
         />
       )
@@ -411,7 +417,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -465,7 +472,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -519,7 +527,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -574,7 +583,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -627,7 +637,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
         />
       )
@@ -698,7 +709,8 @@ export default class MainBody extends React.Component {
       username: account.username,
       email: account.email,
       password: account.password,
-      reputation: account.reputation
+      reputation: account.reputation,
+      time_created: account.time_created
     }));
     this.setState((previousState) => ({
       questions: newQuestions,
@@ -748,7 +760,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -788,7 +801,8 @@ export default class MainBody extends React.Component {
       username: account.username,
       email: account.email,
       password: account.password,
-      reputation: account.reputation
+      reputation: account.reputation,
+      time_created: account.time_created
     }));
     this.setState((previousState) => ({
       questions: newQuestions,
@@ -837,7 +851,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -1143,7 +1158,8 @@ export default class MainBody extends React.Component {
             getQuestionVoteCount: this.getQuestionVoteCount,
             incrementQuestionVoteCount: this.incrementQuestionVoteCount,
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -1204,7 +1220,8 @@ export default class MainBody extends React.Component {
             getQuestionVoteCount: this.getQuestionVoteCount,
             incrementQuestionVoteCount: this.incrementQuestionVoteCount,
             decrementQuestionVoteCount: this.decrementQuestionVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -1278,7 +1295,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -1343,7 +1361,8 @@ export default class MainBody extends React.Component {
             getAnswerVoteCount: this.getAnswerVoteCount,
             incrementAnswerVoteCount: this.incrementAnswerVoteCount,
             decrementAnswerVoteCount: this.decrementAnswerVoteCount,
-            getReputation: this.getReputation
+            getReputation: this.getReputation,
+            getTimeCreated: this.getTimeCreated
           }}
           userInfo={this.props.userInfo}
         />
@@ -1396,6 +1415,15 @@ export default class MainBody extends React.Component {
       const currentAccount = this.state.accounts[i];
       if (currentAccount.email === email) {
         return currentAccount.reputation;
+      }
+    }
+  };
+
+  getTimeCreated = (email) => {
+    for (let i = 0; i < this.state.accounts.length; i++) {
+      const currentAccount = this.state.accounts[i];
+      if (currentAccount.email === email) {
+        return currentAccount.time_created;
       }
     }
   };

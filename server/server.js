@@ -175,3 +175,7 @@ app.get("/loginSuccessful/:email/:password", (req, res) => {
 app.get("/getReputation/:email", (req, res) => {
   Account.getReputation(connection, res, req.params.email);
 });
+
+app.get("/getUsername/:email", (req, res) => {
+  Account.getUsername(connection, res, req.params.email);
+});

@@ -60,3 +60,14 @@ exports.getAccounts = function (connection, res) {
     res.json(results);
   });
 };
+
+exports.getUsername = function (connection, res, email) {
+  const query = `select username from account where email = ?;`;
+  connection.query(query, [email], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results[0].username);
+  });
+};

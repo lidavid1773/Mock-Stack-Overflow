@@ -21,6 +21,9 @@ export default class LoginPage extends React.Component {
     const res = await axios.get(
       `http://localhost:8000/loginSuccessful/${this.state.email}/${this.state.password}`
     );
+    const usernameRes = await axios.get(
+      `http://localhost:8000/getUsername/${this.state.email}`
+    );
     let loginSuccessfulStatus = res.data;
     if (loginSuccessfulStatus) {
       this.setState({
@@ -32,7 +35,7 @@ export default class LoginPage extends React.Component {
           this.props.handleShowMainBody({
             guest: false,
             email: this.state.email,
-            username: "temp username"
+            username: usernameRes.data
           }),
         1000
       );
