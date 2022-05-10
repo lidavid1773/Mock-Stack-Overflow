@@ -4,7 +4,7 @@ export default class QuestionsTable extends React.Component {
   // a helper function that takes in a question id
   // generates and returns a table row for the question with the corresponding id
   generateTableRow = (qid) => {
-    const { handleDisplayAnswers, methods } = this.props;
+    const { handleDisplayAnswers, methods, userInfo } = this.props;
     return (
       <div className="questions-table-row" key={qid}>
         <div className="questions-table-column-1 questions-table-column">
@@ -14,6 +14,7 @@ export default class QuestionsTable extends React.Component {
             <button
               onClick={() => methods.incrementQuestionVoteCount(qid)}
               className="make-inline"
+              style={{ display: userInfo.guest ? "none" : "inline-block" }}
             >
               upvote
             </button>
@@ -23,6 +24,7 @@ export default class QuestionsTable extends React.Component {
             <button
               onClick={() => methods.decrementQuestionVoteCount(qid)}
               className="make-inline"
+              style={{ display: userInfo.guest ? "none" : "inline-block" }}
             >
               downvote
             </button>

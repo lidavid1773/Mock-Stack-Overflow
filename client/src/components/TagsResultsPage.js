@@ -30,6 +30,7 @@ export default class TagsResultsPage extends React.Component {
           questions={taggedQuestions}
           handleDisplayAnswers={handleDisplayAnswers}
           methods={methods}
+          userInfo={userInfo}
         />
       </div>
     );

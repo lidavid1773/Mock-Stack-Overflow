@@ -48,6 +48,7 @@ export default class AnswersPage extends React.Component {
                     methods.incrementAnswerVoteCount(answerId, qid)
                   }
                   className="make-inline"
+                  style={{ display: userInfo.guest ? "none" : "inline-block" }}
                 >
                   upvote
                 </button>
@@ -59,6 +60,7 @@ export default class AnswersPage extends React.Component {
                     methods.decrementAnswerVoteCount(answerId, qid)
                   }
                   className="make-inline"
+                  style={{ display: userInfo.guest ? "none" : "inline-block" }}
                 >
                   downvote
                 </button>

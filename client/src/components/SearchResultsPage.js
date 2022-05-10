@@ -59,6 +59,7 @@ export default class SearchResultsPage extends React.Component {
           questions={questions}
           handleDisplayAnswers={this.props.handleDisplayAnswers}
           methods={this.props.methods}
+          userInfo={this.props.userInfo}
         />
       </div>
     );

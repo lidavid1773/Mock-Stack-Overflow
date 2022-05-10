@@ -18,6 +18,7 @@ export default class AllQuestionsPage extends React.Component {
           questions={methods.getAllQuestions()}
           handleDisplayAnswers={handleDisplayAnswers}
           methods={methods}
+          userInfo={userInfo}
         />
       </div>
     );
