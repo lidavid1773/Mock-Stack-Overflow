@@ -71,3 +71,36 @@ exports.getUsername = function (connection, res, email) {
     res.json(results[0].username);
   });
 };
+
+exports.getAccountId = function (connection, res, email) {
+  const query = `select accountId from account where email = ?;`;
+  connection.query(query, [email], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results[0].accountId);
+  });
+};
+
+exports.addAccountQuestion = function (connection, res, accountId, qid) {
+  const query = `insert into accountquestion values(?,?)`;
+  connection.query(query, [accountId, qid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json("added accountquestion!");
+  });
+};
+
+exports.getAccountQuestionIds = function (connection, res, accountId) {
+  const query = `select qstnId from accountquestion where accId = ?;`;
+  connection.query(query, [accountId], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results);
+  });
+};

@@ -100,3 +100,14 @@ exports.getQuestionId = function (connection, res, title) {
     res.json(results[0].qid);
   });
 };
+
+exports.getQuestionText = function (connection, res, qid) {
+  const query = `select title from question where qid = ?;`;
+  connection.query(query, [qid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results[0].title);
+  });
+};

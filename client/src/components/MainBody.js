@@ -594,7 +594,25 @@ export default class MainBody extends React.Component {
     });
   };
 
-  handleDisplayUserProfile = () => {
+  handleDisplayUserProfile = async () => {
+    const accIdRes = await axios.get(
+      `http://localhost:8000/getAccountId/${this.props.userInfo.email}`
+    );
+    const accId = accIdRes.data;
+    const accountQuestionIdsRes = await axios.get(
+      `http://localhost:8000/getAccountQuestionIds/${accId}`
+    );
+    const accountQuestionIds = accountQuestionIdsRes.data;
+    const userQuestions = [];
+    for (let i = 0; i < accountQuestionIds.length; i++) {
+      const qid = accountQuestionIds[i].qstnId;
+      const textRes = await axios.get(
+        `http://localhost:8000/getQuestionText/${qid}`
+      );
+      userQuestions.push(textRes.data);
+    }
+    const userAnswers = [];
+    const userTags = [];
     this.setState({
       mainBody: (
         <UserProfilePage
@@ -640,6 +658,9 @@ export default class MainBody extends React.Component {
             getReputation: this.getReputation,
             getTimeCreated: this.getTimeCreated
           }}
+          userQuestions={userQuestions}
+          userAnswers={userAnswers}
+          userTags={userTags}
         />
       )
     });
@@ -1372,12 +1393,23 @@ export default class MainBody extends React.Component {
     });
   };
 
-  addQuestion = (questionObj) => {
+  addQuestion = async (questionObj) => {
+    const { userInfo } = this.props;
     // this.state.questions.unshift(questionObj);
     // request to add question to db
     axios.get(
       `http://localhost:8000/addQuestion/${questionObj.title}/${questionObj.text}/${questionObj.asked_by}`
     );
+    const accIdRes = await axios.get(
+      `http://localhost:8000/getAccountId/${userInfo.email}`
+    );
+    const qidRes = await axios.get(
+      `http://localhost:8000/getQuestionId/${questionObj.title}`
+    );
+    const accountId = accIdRes.data;
+    const qid = qidRes.data;
+    axios.get(`http://localhost:8000/addAccountQuestion/${accountId}/${qid}`);
+
     this.updateCurrentState();
   };
 

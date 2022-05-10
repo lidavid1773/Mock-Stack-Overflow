@@ -179,3 +179,23 @@ app.get("/getReputation/:email", (req, res) => {
 app.get("/getUsername/:email", (req, res) => {
   Account.getUsername(connection, res, req.params.email);
 });
+
+app.get("/getAccountId/:email", (req, res) => {
+  Account.getAccountId(connection, res, req.params.email);
+});
+
+app.get("/addAccountQuestion/:accountId/:qid", (req, res) => {
+  const accountId = req.params.accountId;
+  const qid = req.params.qid;
+  Account.addAccountQuestion(connection, res, accountId, qid);
+});
+
+app.get("/getAccountQuestionIds/:accountId", (req, res) => {
+  const accountId = req.params.accountId;
+  Account.getAccountQuestionIds(connection, res, accountId);
+});
+
+app.get("/getQuestionText/:qid", (req, res) => {
+  const qid = req.params.qid;
+  Question.getQuestionText(connection, res, qid);
+});
