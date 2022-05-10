@@ -46,3 +46,14 @@ exports.updateAnswerVoteCount = function (connection, res, aid, newVotes) {
     res.json("updated!");
   });
 };
+
+exports.getAnswerText = function (connection, res, aid) {
+  const query = `select text from answer where aid = ?;`;
+  connection.query(query, [aid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results[0].text);
+  });
+};

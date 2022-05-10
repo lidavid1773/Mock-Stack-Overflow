@@ -126,3 +126,25 @@ exports.getAccountTagIds = function (connection, res, accountId) {
     res.json(results);
   });
 };
+
+exports.getAccountAnswerIds = function (connection, res, accountId) {
+  const query = `select ansId from accountanswer where accId = ?;`;
+  connection.query(query, [accountId], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json(results);
+  });
+};
+
+exports.addAccountAnswer = function (connection, res, accountId, aid) {
+  const query = `insert into accountanswer values(?,?)`;
+  connection.query(query, [accountId, aid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json("added accountanswer!");
+  });
+};

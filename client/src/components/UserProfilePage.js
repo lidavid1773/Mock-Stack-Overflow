@@ -26,18 +26,24 @@ export default class UserProfilePage extends React.Component {
           <div>
             {`Questions by ${userInfo.username}:`}
             <br />
-            {userQuestions.map((question) => (
-              <div>-{question}</div>
+            {userQuestions.map((question, idx) => (
+              <div key={idx}>-{question}</div>
             ))}
           </div>
           <br />
-          <div>{`Answers by ${userInfo.username}: ${userAnswers}`}</div>
+          <div>
+            {`Answers by ${userInfo.username}:`}
+            <br />
+            {userAnswers.map((answer, idx) => (
+              <div key={idx}>-{answer}</div>
+            ))}
+          </div>
           <br />
           <div>
             {`Tags by ${userInfo.username}: `}
             <br />
-            {userTags.map((tag) => (
-              <div>-{tag}</div>
+            {userTags.map((tag, idx) => (
+              <div key={idx}>-{tag}</div>
             ))}
           </div>
         </div>

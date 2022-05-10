@@ -195,9 +195,9 @@ app.get("/getAccountQuestionIds/:accountId", (req, res) => {
   Account.getAccountQuestionIds(connection, res, accountId);
 });
 
-app.get("/getQuestionText/:qid", (req, res) => {
+app.get("/getQuestionTitle/:qid", (req, res) => {
   const qid = req.params.qid;
-  Question.getQuestionText(connection, res, qid);
+  Question.getQuestionTitle(connection, res, qid);
 });
 
 app.get("/addAccountTag/:accountId/:tid", (req, res) => {
@@ -214,4 +214,20 @@ app.get("/getAccountTagIds/:accountId", (req, res) => {
 app.get("/getTagName/:tid", (req, res) => {
   const tid = req.params.tid;
   Tag.getTagName(connection, res, tid);
+});
+
+app.get("/getAccountAnswerIds/:accountId", (req, res) => {
+  const accountId = req.params.accountId;
+  Account.getAccountAnswerIds(connection, res, accountId);
+});
+
+app.get("/getAnswerText/:aid", (req, res) => {
+  const aid = req.params.aid;
+  Answer.getAnswerText(connection, res, aid);
+});
+
+app.get("/addAccountAnswer/:accountId/:aid", (req, res) => {
+  const accountId = req.params.accountId;
+  const aid = req.params.aid;
+  Account.addAccountAnswer(connection, res, accountId, aid);
 });

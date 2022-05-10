@@ -600,6 +600,7 @@ export default class MainBody extends React.Component {
       `http://localhost:8000/getAccountId/${this.props.userInfo.email}`
     );
     const accId = accIdRes.data;
+
     // get question ids
     const accountQuestionIdsRes = await axios.get(
       `http://localhost:8000/getAccountQuestionIds/${accId}`
@@ -609,11 +610,25 @@ export default class MainBody extends React.Component {
     for (let i = 0; i < accountQuestionIds.length; i++) {
       const qid = accountQuestionIds[i].qstnId;
       const textRes = await axios.get(
-        `http://localhost:8000/getQuestionText/${qid}`
+        `http://localhost:8000/getQuestionTitle/${qid}`
       );
       userQuestions.push(textRes.data);
     }
+
+    // get answer ids
+    const accountAnswerIdsRes = await axios.get(
+      `http://localhost:8000/getAccountAnswerIds/${accId}`
+    );
+    const accountAnswerIds = accountAnswerIdsRes.data;
     const userAnswers = [];
+    for (let i = 0; i < accountAnswerIds.length; i++) {
+      const aid = accountAnswerIds[i].ansId;
+      const textRes = await axios.get(
+        `http://localhost:8000/getAnswerText/${aid}`
+      );
+      userAnswers.push(textRes.data);
+    }
+
     // get tag ids
     const accountTagIdsRes = await axios.get(
       `http://localhost:8000/getAccountTagIds/${accId}`
@@ -625,6 +640,7 @@ export default class MainBody extends React.Component {
       const tagRes = await axios.get(`http://localhost:8000/getTagName/${tid}`);
       userTags.push(tagRes.data);
     }
+
     this.setState({
       mainBody: (
         <UserProfilePage
@@ -1456,10 +1472,20 @@ export default class MainBody extends React.Component {
   };
 
   // For Answers
-  addAnswer = (answerObj) => {
+  addAnswer = async (answerObj) => {
     axios.get(
       `http://localhost:8000/addAnswer/${answerObj.text}/${answerObj.ans_by}`
     );
+    // add accountanswer
+    const accIdRes = await axios.get(
+      `http://localhost:8000/getAccountId/${this.props.userInfo.email}`
+    );
+    const aidRes = await axios.get(
+      `http://localhost:8000/getAnswerId/${answerObj.text}`
+    );
+    const accountId = accIdRes.data;
+    const aid = aidRes.data;
+    axios.get(`http://localhost:8000/addAccountAnswer/${accountId}/${aid}`);
   };
 
   getReputation = (email) => {

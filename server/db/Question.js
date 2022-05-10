@@ -101,7 +101,7 @@ exports.getQuestionId = function (connection, res, title) {
   });
 };
 
-exports.getQuestionText = function (connection, res, qid) {
+exports.getQuestionTitle = function (connection, res, qid) {
   const query = `select title from question where qid = ?;`;
   connection.query(query, [qid], function (error, results) {
     if (error) {
