@@ -22,11 +22,22 @@ exports.incrementQuestionViewCount = function (connection, res, qid, newViews) {
   });
 };
 
+exports.updateQuestionVoteCount = function (connection, res, qid, newVotes) {
+  const query = `update question set votes = ? where qid = ?;`;
+  connection.query(query, [newVotes, qid], function (error, results) {
+    if (error) {
+      throw error;
+      return;
+    }
+    res.json("updated!");
+  });
+};
+
 exports.addQuestion = function (connection, res, title, text, asked_by) {
   let q = {
     title: title,
     text: text,
-    asked_by: asked_by,
+    asked_by: asked_by
   };
   connection.query("insert into question set ?", q, function (error, results) {
     if (error) {

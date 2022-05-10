@@ -10,6 +10,23 @@ export default class QuestionsTable extends React.Component {
         <div className="questions-table-column-1 questions-table-column">
           <div>{`${methods.getQuestionViewCount(qid)} Views`}</div>
           <div>{`${methods.getQuestionAnswerCount(qid)} Answers`}</div>
+          <div>
+            <button
+              onClick={() => methods.incrementQuestionVoteCount(qid)}
+              className="make-inline"
+            >
+              upvote
+            </button>
+            <div className="make-inline">
+              {`${methods.getQuestionVoteCount(qid)} Votes`}
+            </div>
+            <button
+              onClick={() => methods.decrementQuestionVoteCount(qid)}
+              className="make-inline"
+            >
+              downvote
+            </button>
+          </div>
         </div>
         <div className="questions-table-column-2 questions-table-column">
           <button

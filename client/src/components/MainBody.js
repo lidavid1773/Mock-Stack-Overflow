@@ -56,7 +56,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -105,7 +108,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
         />
       ),
@@ -168,7 +174,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -216,7 +225,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -265,7 +277,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -312,7 +327,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
         />
       )
@@ -361,7 +379,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -408,7 +429,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -455,7 +479,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -503,7 +530,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -566,7 +596,8 @@ export default class MainBody extends React.Component {
       asked_on: this.getOn(question.ask_date_time),
       asked_at: this.getAt(question.ask_date_time),
       answers: this.grabAnswerIds(question.qid, qaRes.data),
-      views: question.views
+      views: question.views,
+      votes: question.votes
     }));
     const newAnswers = answersRes.data.map((answer) => ({
       aid: answer.aid,
@@ -615,7 +646,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -638,7 +672,8 @@ export default class MainBody extends React.Component {
       asked_on: this.getOn(question.ask_date_time),
       asked_at: this.getAt(question.ask_date_time),
       answers: this.grabAnswerIds(question.qid, qaRes.data),
-      views: question.views
+      views: question.views,
+      votes: question.votes
     }));
     const newAnswers = answersRes.data.map((answer) => ({
       aid: answer.aid,
@@ -686,7 +721,10 @@ export default class MainBody extends React.Component {
             getAnswerAnsBy: this.getAnswerAnsBy,
             getAnswerAnsOn: this.getAnswerAnsOn,
             getAnswerAnsAt: this.getAnswerAnsAt,
-            addAnswer: this.addAnswer
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
           }}
           userInfo={this.props.userInfo}
         />
@@ -721,6 +759,15 @@ export default class MainBody extends React.Component {
       const currentQuestion = this.state.questions[i];
       if (currentQuestion.qid === qid) {
         return currentQuestion.answers.length;
+      }
+    }
+  };
+
+  getQuestionVoteCount = (qid) => {
+    for (let i = 0; i < this.getNumberOfQuestions(); i++) {
+      const currentQuestion = this.state.questions[i];
+      if (currentQuestion.qid === qid) {
+        return currentQuestion.votes;
       }
     }
   };
@@ -930,6 +977,127 @@ export default class MainBody extends React.Component {
     axios.get(
       `http://localhost:8000/incrementQuestionViewCount/${qid}/${newViews}`
     );
+  };
+
+  incrementQuestionVoteCount = (qid) => {
+    for (let i = 0; i < this.getNumberOfQuestions(); i++) {
+      const currentQuestion = this.state.questions[i];
+      if (currentQuestion.qid === qid) {
+        currentQuestion.votes++;
+      }
+    }
+    const newVotes = this.getQuestionVoteCount(qid);
+    console.log(newVotes);
+    axios.get(
+      `http://localhost:8000/updateQuestionVoteCount/${qid}/${newVotes}`
+    );
+    this.setState({
+      mainBody: (
+        <AllQuestionsPage
+          handleAskAQuestion={this.handleAskAQuestion}
+          handleDisplayAnswers={this.handleDisplayAnswers}
+          methods={{
+            getNumberOfQuestions: this.getNumberOfQuestions,
+            getAllQuestions: this.getAllQuestions,
+            getQuestionViewCount: this.getQuestionViewCount,
+            incrementQuestionViewCount: this.incrementQuestionViewCount,
+            getQuestionAnswerCount: this.getQuestionAnswerCount,
+            getQuestionAnswers: this.getQuestionAnswers,
+            getQuestionAskedBy: this.getQuestionAskedBy,
+            getQuestionAskedOn: this.getQuestionAskedOn,
+            getQuestionAskedAt: this.getQuestionAskedAt,
+            getQuestionTitle: this.getQuestionTitle,
+            getQuestionText: this.getQuestionText,
+            addQuestion: this.addQuestion,
+            addQuestionAnswer: this.addQuestionAnswer,
+            getTagIds: this.getTagIds,
+            getTagName: this.getTagName,
+            getTagId: this.getTagId,
+            getTags: this.getTags,
+            getTagsLst: this.getTagsLst,
+            getNumberOfTags: this.getNumberOfTags,
+            addTag: this.addTag,
+            tagExists: this.tagExists,
+            contains: this.contains,
+            getTagsList: this.getTagsList,
+            searchForQuestionTags: this.searchForQuestionTags,
+            searchForQuestionNonTag: this.searchForQuestionNonTag,
+            getNumberOfAnswers: this.getNumberOfAnswers,
+            getAnswerText: this.getAnswerText,
+            getAnswerAnsBy: this.getAnswerAnsBy,
+            getAnswerAnsOn: this.getAnswerAnsOn,
+            getAnswerAnsAt: this.getAnswerAnsAt,
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
+          }}
+          userInfo={this.props.userInfo}
+        />
+      ),
+      bannerQuestionsColorEnabled: true,
+      bannerTagsColorEnabled: false
+    });
+  };
+
+  decrementQuestionVoteCount = (qid) => {
+    for (let i = 0; i < this.getNumberOfQuestions(); i++) {
+      const currentQuestion = this.state.questions[i];
+      if (currentQuestion.qid === qid) {
+        currentQuestion.votes--;
+      }
+    }
+    const newVotes = this.getQuestionVoteCount(qid);
+    axios.get(
+      `http://localhost:8000/updateQuestionVoteCount/${qid}/${newVotes}`
+    );
+    this.setState({
+      mainBody: (
+        <AllQuestionsPage
+          handleAskAQuestion={this.handleAskAQuestion}
+          handleDisplayAnswers={this.handleDisplayAnswers}
+          methods={{
+            getNumberOfQuestions: this.getNumberOfQuestions,
+            getAllQuestions: this.getAllQuestions,
+            getQuestionViewCount: this.getQuestionViewCount,
+            incrementQuestionViewCount: this.incrementQuestionViewCount,
+            getQuestionAnswerCount: this.getQuestionAnswerCount,
+            getQuestionAnswers: this.getQuestionAnswers,
+            getQuestionAskedBy: this.getQuestionAskedBy,
+            getQuestionAskedOn: this.getQuestionAskedOn,
+            getQuestionAskedAt: this.getQuestionAskedAt,
+            getQuestionTitle: this.getQuestionTitle,
+            getQuestionText: this.getQuestionText,
+            addQuestion: this.addQuestion,
+            addQuestionAnswer: this.addQuestionAnswer,
+            getTagIds: this.getTagIds,
+            getTagName: this.getTagName,
+            getTagId: this.getTagId,
+            getTags: this.getTags,
+            getTagsLst: this.getTagsLst,
+            getNumberOfTags: this.getNumberOfTags,
+            addTag: this.addTag,
+            tagExists: this.tagExists,
+            contains: this.contains,
+            getTagsList: this.getTagsList,
+            searchForQuestionTags: this.searchForQuestionTags,
+            searchForQuestionNonTag: this.searchForQuestionNonTag,
+            getNumberOfAnswers: this.getNumberOfAnswers,
+            getAnswerText: this.getAnswerText,
+            getAnswerAnsBy: this.getAnswerAnsBy,
+            getAnswerAnsOn: this.getAnswerAnsOn,
+            getAnswerAnsAt: this.getAnswerAnsAt,
+            addAnswer: this.addAnswer,
+            getQuestionVoteCount: this.getQuestionVoteCount,
+            incrementQuestionVoteCount: this.incrementQuestionVoteCount,
+            decrementQuestionVoteCount: this.decrementQuestionVoteCount
+          }}
+          userInfo={this.props.userInfo}
+        />
+      ),
+      bannerQuestionsColorEnabled: true,
+      bannerTagsColorEnabled: false
+    });
   };
 
   addQuestion = (questionObj) => {

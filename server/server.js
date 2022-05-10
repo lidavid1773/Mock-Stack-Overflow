@@ -81,6 +81,15 @@ app.get("/incrementQuestionViewCount/:qid/:newViews", (req, res) => {
   );
 });
 
+app.get("/updateQuestionVoteCount/:qid/:newVotes", (req, res) => {
+  Question.updateQuestionVoteCount(
+    connection,
+    res,
+    req.params.qid,
+    req.params.newVotes
+  );
+});
+
 // Add new question, tag, or answer
 app.get("/addQuestion/:title/:text/:asked_by", (req, res) => {
   Question.addQuestion(
