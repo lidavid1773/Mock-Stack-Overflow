@@ -21,11 +21,11 @@ export default class LoginPage extends React.Component {
     const res = await axios.get(
       `http://localhost:8000/loginSuccessful/${this.state.email}/${this.state.password}`
     );
-    const usernameRes = await axios.get(
-      `http://localhost:8000/getUsername/${this.state.email}`
-    );
     let loginSuccessfulStatus = res.data;
     if (loginSuccessfulStatus) {
+      const usernameRes = await axios.get(
+        `http://localhost:8000/getUsername/${this.state.email}`
+      );
       this.setState({
         showSuccessfulMessage: true,
         showInvalidLoginMessage: false
