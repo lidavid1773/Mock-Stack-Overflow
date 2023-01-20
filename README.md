@@ -1,6 +1,6 @@
-# Mock-StackOverflow
+# Mock-Stack-Overflow
 
-A full-stack MERN application I built for one of my classes!
+A full-stack MERN web application inspired by Stack Overflow, featuring account creation, asking and answering questions, searching, and voting.
 
 To set up this project locally, follow these steps:
 
